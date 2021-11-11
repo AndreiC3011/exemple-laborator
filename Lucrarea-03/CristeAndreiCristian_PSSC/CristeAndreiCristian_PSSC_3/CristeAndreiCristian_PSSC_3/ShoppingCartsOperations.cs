@@ -38,9 +38,7 @@ namespace CristeAndreiCristian_PSSC_3
                                     .ToEither(error => error.ToString())
             from addressOK in checkAddress(address)
                                     .ToEither(error => error.ToString())
-            select new ValidatedShoppingCart(productCode, quantity, address, price); // putem return ce anume dorimm noi din acest link syntax
-        // in cazul in care o operatiune nu se executa nu succes, tot workflowul se scurtcircuiteaza. 
-        // in either async poti trata mai multe tipuri de return
+            select new ValidatedShoppingCart(productCode, quantity, address, price); 
 
         private static Either<string, List<ValidatedShoppingCart>> CreateEmptyValidatedShoppingCartList() =>
             Right(new List<ValidatedShoppingCart>());
